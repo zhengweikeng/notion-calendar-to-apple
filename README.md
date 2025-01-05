@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Notion calendar to Apple
 
-## Getting Started
+Based on Next.js, provides a self-deployed application to synchronize the calendar in notion to Apple Calendar.
 
-First, run the development server:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzhengweikeng%2Fnotion-calendar-to-apple&env=NOTION_API_KEY,NOTION_DATABASE_IDS&envDescription=notion-calendar-to-apple&project-name=notion-calendar-to-apple&repository-name=notion-calendar-to-apple) 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Chinese](README_CN.md)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+* Deploy and use quickly with Vercel
+* Create an Apple Calendar subscription URL for the calendar in Notion
+* Supports synchronizing multiple Notion calendars
+* Synchronize calendars on a scheduled basis, the interval is configurable
+* Provides a web page to show the synchronized Notion calendars
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quick Start
+1. Access [Notion Integration](https://www.notion.so/profile/integrations/form/new-integration)，create a new integration，copy and save the Internal Integration Secret for later  **NOTION_API_KEY**.
+2. Go to the page where the calendar is located in Notion and add the integration you created above in the **Connection**.
+    ![notion connection](public/notion_connection.png)
+3. Copy the database link of the calendar in Notion
+    ![notion calendar](public/notion_calendar.png)
+4. Get the **DATABASE_ID** in the Calendar Database link
+    ![notion database id](public/notion_database_id.png)
+5. Click the button on the right to start deploying to Vercel:[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzhengweikeng%2Fnotion-calendar-to-apple&env=NOTION_API_KEY,NOTION_DATABASE_IDS&envDescription=notion-calendar-to-apple&project-name=notion-calendar-to-apple&repository-name=notion-calendar-to-apple) You can log in directly with your Github account, and remember to fill **NOTION_API_KEY** 和 **NOTION_DATABASE_ID** in the environment variables page.
+6. Visit the home page according to the domain name assigned by Vercel, and you can see the pulled notion calendar data (it is recommended to customize the domain name for subsequent access)
+7. Open Calendar on iPhone or iPad, add a new calendar, and select **Add Subscription Calendar**
+8. Subscribe URL: Enter **{vercel access domain}/api/calendar/{NOTION_DATABASE_ID}** to complete the subscription URL
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
+* `NOTION_API_KEY` (required)：Internal Integration Secret key
+* `NOTION_DATABASE_ID` (required)：The notion calendar database id that you want to synchronize, multiple calendars are separated by **,**
+* `TIMEZONE`：Calendar time zone, default is **Asia/Shanghai**
+* `CRON_INTERVAL`：notion calendar synchronization period, default is **60 minutes**
+* `CALENDAR_START_DATE`：Calendar event start date, all will be pulled by default if not config, configuration reference **[Notion Database Filter Date](https://developers.notion.com/reference/post-database-query-filter#date)**
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+MIT © ![Seed Zheng](https://blog.seedzz.top/about)
