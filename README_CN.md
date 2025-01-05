@@ -32,4 +32,4 @@
 * `CALENDAR_START_DATE`：日历事件开始日期，不配置默认拉取全部，配置参考 **[Notion Database Filter Date](https://developers.notion.com/reference/post-database-query-filter#date)**
 
 ## License
-MIT © ![Seed Zheng](https://blog.seedzz.top/about)
+MIT © [Seed Zheng](https://blog.seedzz.top/about)

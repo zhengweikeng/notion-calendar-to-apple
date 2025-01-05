@@ -35,4 +35,4 @@ Based on Next.js, provides a self-deployed application to synchronize the calend
 
 
 ## License
-MIT © ![Seed Zheng](https://blog.seedzz.top/about)
+MIT © [Seed Zheng](https://blog.seedzz.top/about)
