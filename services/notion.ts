@@ -21,10 +21,10 @@ class NotionService {
         this.cacheService = CacheService.getInstance();
 
         const cronInterval = process.env.CRON_INTERVAL || '*/60 * * * *';
-        console.log(`Setting up cron job with interval: ${cronInterval}`);
-        cron.schedule(cronInterval, async () => {
-            await this.updateCalendarCache();
-        })
+        // console.log(`Setting up cron job with interval: ${cronInterval}`);
+        // cron.schedule(cronInterval, async () => {
+        //     await this.updateCalendarCache();
+        // })
     }
 
     public static getInstance(): NotionService {

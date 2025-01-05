@@ -1,9 +1,8 @@
+'use client';
 import { Suspense } from 'react';
 import Dashboard from '@/components/Dashboard';
 import NotionService from '@/services/notion';
 import { NotionCalendar } from "@/types/notion";
-
-export const revalidate = 3600
 
 export default async function Home() {
   const notionService = NotionService.getInstance();
