@@ -5,10 +5,7 @@ import NotionService from '@/services/notion';
 
 function generateICalFeed(notionCalendarId: string, notionCalendars: NotionCalendar[]): ICalCalendar {
     const timezone = process.env.TIMEZONE || 'Asia/Shanghai';
-    const calendar = ical({
-        name: 'Notion Calendar',
-        timezone: timezone,
-    });
+    const calendar = ical();
 
     notionCalendars.forEach((notionCalendar) => {
         if (notionCalendar.databaseId !== notionCalendarId) {
@@ -26,6 +23,7 @@ function generateICalFeed(notionCalendarId: string, notionCalendars: NotionCalen
                 summary: event.title,
                 location: event.location,
                 description: `Detailed Address: ${event.location}${event.address || ''}`,
+                timezone: timezone,
             });
         });
     });
