@@ -177,6 +177,11 @@ class NotionService {
                 }
                 break
             }
+
+            calendarEvents.forEach((event) => {
+                console.log(event.title, event.start, event.end);
+            });
+
             let notionCalendar: NotionCalendar = {
                 databaseId: databaseId,
                 events: calendarEvents,
