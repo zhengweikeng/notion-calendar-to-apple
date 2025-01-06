@@ -28,7 +28,7 @@
 * `NOTION_API_KEY` (必传)：notion集成api key
 * `NOTION_DATABASE_ID` (必传)：想要同步的notion日历数据库id，多个日历以**,**分隔
 * `TIMEZONE`：日历时区，默认为 **Asia/Shanghai**
-* `CRON_INTERVAL`：notion日历同步周期，默认为 **60分钟**
+* `CACHE_UPDATE_INTERVAL_MINUTES`：notion日历同步周期，默认为 **60分钟**
 * `CALENDAR_START_DATE`：日历事件开始日期，不配置默认拉取全部，配置参考 **[Notion Database Filter Date](https://developers.notion.com/reference/post-database-query-filter#date)**
 
 ## License

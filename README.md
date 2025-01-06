@@ -10,7 +10,7 @@ Based on Next.js, provides a self-deployed application to synchronize the calend
 * Deploy and use quickly with Vercel
 * Create an Apple Calendar subscription URL for the calendar in Notion
 * Supports synchronizing multiple Notion calendars
-* Synchronize calendars on a scheduled basis, the interval is configurable
+* Cache Notion Calendar, regular updates
 * Provides a web page to show the synchronized Notion calendars
 
 ## Quick Start
@@ -30,7 +30,7 @@ Based on Next.js, provides a self-deployed application to synchronize the calend
 * `NOTION_API_KEY` (required)：Internal Integration Secret key
 * `NOTION_DATABASE_ID` (required)：The notion calendar database id that you want to synchronize, multiple calendars are separated by **,**
 * `TIMEZONE`：Calendar time zone, default is **Asia/Shanghai**
-* `CRON_INTERVAL`：notion calendar synchronization period, default is **60 minutes**
+* `CACHE_UPDATE_INTERVAL_MINUTES`：notion calendar synchronization period, default is **60 minutes**
 * `CALENDAR_START_DATE`：Calendar event start date, all will be pulled by default if not config, configuration reference **[Notion Database Filter Date](https://developers.notion.com/reference/post-database-query-filter#date)**
 
 

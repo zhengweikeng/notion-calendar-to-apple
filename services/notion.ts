@@ -1,5 +1,4 @@
 import { Client } from '@notionhq/client';
-import cron from 'node-cron';
 import { PageObjectResponse, PartialPageObjectResponse, DatabaseObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { NotionEvent, NotionCalendar } from '@/types/notion';
 import CacheService from './cache';
@@ -11,7 +10,7 @@ class NotionService {
     private readonly CACHE_KEY = 'notion_calendars';
     private isUpdating: boolean = false;
 
-    private constructor() {
+    public constructor() {
         if (!process.env.NOTION_API_KEY) {
             throw new Error('Missing Notion API key');
         }
@@ -19,12 +18,6 @@ class NotionService {
             auth: process.env.NOTION_API_KEY
         });
         this.cacheService = CacheService.getInstance();
-
-        const cronInterval = process.env.CRON_INTERVAL || '*/60 * * * *';
-        // console.log(`Setting up cron job with interval: ${cronInterval}`);
-        // cron.schedule(cronInterval, async () => {
-        //     await this.updateCalendarCache();
-        // })
     }
 
     public static getInstance(): NotionService {
