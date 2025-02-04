@@ -135,7 +135,7 @@ class NotionService {
         if (statusFilter) {
             filters.push({
                 property: "Status",
-                select: {
+                status: {
                     does_not_equal: "Canceled"
                 }
             });
