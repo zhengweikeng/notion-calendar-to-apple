@@ -27,10 +27,11 @@ Based on Next.js, provides a self-deployed application to synchronize the calend
 8. Subscribe URL: Enter **{vercel access domain}/api/calendar/{NOTION_DATABASE_ID}** to complete the subscription URL
 
 ## Environment variables
-* `NOTION_API_KEY` (required)：Internal Integration Secret key
-* `NOTION_DATABASE_ID` (required)：The notion calendar database id that you want to synchronize, multiple calendars are separated by **,**
-* `CACHE_UPDATE_INTERVAL_MINUTES`：notion calendar synchronization period, default is **60 minutes**
-* `CALENDAR_START_DATE`：Calendar event start date, all will be pulled by default if not config, configuration reference **[Notion Database Filter Date](https://developers.notion.com/reference/post-database-query-filter#date)**
+* `NOTION_API_KEY` (required): Internal Integration Secret key
+* `NOTION_DATABASE_ID` (required): The notion calendar database id that you want to synchronize, multiple calendars are separated by **,**
+* `CACHE_UPDATE_INTERVAL_MINUTES`: notion calendar synchronization period, default is **60 minutes**
+* `CALENDAR_START_DATE`: Calendar event start date, all will be pulled by default if not config, configuration reference **[Notion Database Filter Date](https://developers.notion.com/reference/post-database-query-filter#date)**
+* `CALENDAR_STATUS_FILTER`: If the calendar has status filters (Not Started, In progress, Canceled, Done), you can use it to filter out canceled events.
 
 
 ## License

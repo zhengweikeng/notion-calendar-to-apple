@@ -29,6 +29,7 @@
 * `NOTION_DATABASE_ID` (必传)：想要同步的notion日历数据库id，多个日历以**,**分隔
 * `CACHE_UPDATE_INTERVAL_MINUTES`：notion日历同步周期，默认为 **60分钟**
 * `CALENDAR_START_DATE`：日历事件开始日期，不配置默认拉取全部，配置参考 **[Notion Database Filter Date](https://developers.notion.com/reference/post-database-query-filter#date)**
+* `CALENDAR_STATUS_FILTER`：如果日历中设置了状态（Not Started、In progress、Canceled、Done）过滤，可以用它来过滤掉已取消的事件
 
 ## License
 MIT © [Seed Zheng](https://blog.seedzz.top/about)

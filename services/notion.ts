@@ -122,15 +122,27 @@ class NotionService {
         let notionCalendars = [];
         const databaseIds = this.getDatabaseIds();
         const startDate = process.env.CALENDAR_START_DATE
-        const filter = startDate
-            ? {
+        const statusFilter = process.env.CALENDAR_STATUS_FILTER
+        const filters = [];
+        if (startDate) {
+            filters.push({
                 property: "Date",
                 date: {
                     on_or_after: startDate,
                 },
-            }
-            : undefined;
-
+            });
+        }
+        if (statusFilter) {
+            filters.push({
+                property: "Status",
+                select: {
+                    does_not_equal: "Canceled"
+                }
+            });
+        }
+        const filter = filters.length > 0 ? {
+            and: filters
+        } : undefined;
 
         for (const databaseId of databaseIds) {
             let hasMore = true;
